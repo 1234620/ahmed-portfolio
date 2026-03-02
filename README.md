@@ -2,7 +2,7 @@
 
 A dark-themed personal portfolio built with vanilla JS, GSAP scroll animations, and a custom SVG cursor-tracking cat.
 
-**Live →** [1234620.github.io/portfolio](https://1234620.github.io/ahmed-portfolio/)
+**Live →** [ahmed-portfolio](https://1234620.github.io/ahmed-portfolio/)
 
 ![Hero section](docs/hero.png)
 
