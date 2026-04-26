@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ahmed Moosani — AI Undergrad | Portfolio</title>
+  <title>Ahmed Moosani — AI/ML Engineer & MBA Candidate | Portfolio</title>
   <meta name="description"
-    content="Ahmed Moosani — AI Undergrad passionate about Machine Learning, Deep Learning, and Open Source. Explore my projects and get in touch." />
+    content="Ahmed Moosani — Pre-final year MBA (AI) student at NMIMS Mumbai, building multi-agent LLM systems, computer vision pipelines, and scalable AI backends." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="/src/styles/menu.css" />
   <link rel="stylesheet" href="/src/styles/hero.css" />
   <link rel="stylesheet" href="/src/styles/about.css" />
+  <link rel="stylesheet" href="/src/styles/education.css" />
   <link rel="stylesheet" href="/src/styles/stack.css" />
   <link rel="stylesheet" href="/src/styles/experience.css" />
   <link rel="stylesheet" href="/src/styles/projects.css" />
@@ -51,12 +52,12 @@
           <a href="https://github.com/1234620" target="_blank" class="menu-overlay__link">Github</a>
           <a href="https://www.linkedin.com/in/ahmed-moosani-03bb6b27a/" target="_blank"
             class="menu-overlay__link">LinkedIn</a>
-          <a href="https://twitter.com/" target="_blank" class="menu-overlay__link">Twitter / X</a>
         </div>
         <div class="menu-overlay__section">
           <span class="menu-overlay__label">MENU</span>
           <a href="#hero" class="menu-overlay__link menu-overlay__link--nav" data-color="#f59e0b">Home</a>
           <a href="#about" class="menu-overlay__link menu-overlay__link--nav" data-color="#6366f1">About Me</a>
+          <a href="#education" class="menu-overlay__link menu-overlay__link--nav" data-color="#10b981">Education</a>
           <a href="#stack" class="menu-overlay__link menu-overlay__link--nav" data-color="#22c55e">Stack</a>
           <a href="#experience" class="menu-overlay__link menu-overlay__link--nav" data-color="#ec4899">Experience</a>
           <a href="#projects" class="menu-overlay__link menu-overlay__link--nav" data-color="#8b5cf6">Projects</a>
@@ -77,14 +78,19 @@
     <div class="hero__content">
       <div class="hero__text">
         <h1 class="hero__title">
-          <span class="hero__title-line hero__title-line--accent">AI</span>
-          <span class="hero__title-line">UNDERGRAD</span>
+          <span class="hero__title-line hero__title-line--accent">AI/ML</span>
+          <span class="hero__title-line">ENGINEER</span>
+          <span class="hero__title-line hero__title-line--sub">&amp; MBA Candidate</span>
         </h1>
         <p class="hero__bio">
-          Hi! I'm <strong>Ahmed Moosani</strong>. A passionate AI Undergrad focused on building intelligent systems,
-          exploring machine learning, and contributing to open source.
+          Pre-final year <strong>MBA (AI)</strong> student at <strong>NMIMS Mumbai</strong>, building
+          multi-agent LLM systems, computer vision pipelines, and
+          scalable AI backends. <strong>GPA 3.75/4.0</strong>.
         </p>
-        <a href="#projects" class="hero__cta">VIEW MY WORK</a>
+        <div class="hero__cta-group">
+          <a href="#projects" class="hero__cta">VIEW MY WORK</a>
+          <a href="/ahmed-portfolio/resume.pdf" download class="hero__cta hero__cta--secondary">DOWNLOAD RESUME</a>
+        </div>
       </div>
       <div class="hero__stats">
         <div class="hero__stat">
@@ -125,11 +131,37 @@
           <h2>Hi, I'm Ahmed.</h2>
         </div>
         <div class="about__description">
-          <p>I'm an AI undergrad dedicated to turning ideas into intelligent solutions. I specialize in machine
-            learning, deep learning, and building scalable AI-powered applications.</p>
-          <p>My approach focuses on creating practical, high-impact solutions that bridge the gap between cutting-edge
-            research and real-world applications. I'm passionate about computer vision, NLP, and making AI accessible
-            through open source contributions.</p>
+          <p>I'm a pre-final year MBA (AI) student at NMIMS Mumbai specializing in multi-agent LLM systems, computer
+            vision, and AI backend engineering. I build things that work — from YOLOv8 security pipelines to LangGraph
+            agent orchestration to RAG-powered chatbots.</p>
+          <p>I care about systems that ship, not just models that train.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== EDUCATION ======== -->
+  <section class="education" id="education">
+    <h2 class="education__title">Education</h2>
+    <div class="education__card">
+      <div class="education__card-header">
+        <div class="education__card-left">
+          <h3 class="education__institution">MPSTME, NMIMS Mumbai</h3>
+          <span class="education__degree">MBA Tech (Artificial Intelligence)</span>
+        </div>
+        <div class="education__card-right">
+          <span class="education__duration">2024 — 2028</span>
+          <span class="education__gpa">GPA: 3.75 / 4.0</span>
+        </div>
+      </div>
+      <div class="education__coursework">
+        <span class="education__coursework-label">Relevant Coursework</span>
+        <div class="education__coursework-tags">
+          <span class="education__tag">Machine Learning</span>
+          <span class="education__tag">Deep Learning</span>
+          <span class="education__tag">DevOps</span>
+          <span class="education__tag">Blockchain</span>
+          <span class="education__tag">Organizational Behavior</span>
         </div>
       </div>
     </div>
@@ -268,8 +300,10 @@
     <div class="experience__list">
       <div class="experience__item">
         <div class="experience__left">
-          <h3 class="experience__company">AI Research Projects</h3>
-          <span class="experience__role">AI / ML Developer</span>
+          <h3 class="experience__company">AI/ML Developer (Independent Projects)</h3>
+          <span class="experience__role">Project-Driven Engineering</span>
+          <p class="experience__desc">Built production-grade AI systems including deepfake detection (CNN-BiLSTM),
+            RAG-based travel chatbot, suspicious object detection (YOLOv8), and AI railway traffic optimization.</p>
         </div>
         <div class="experience__right">
           <span class="experience__date">2023 — Present</span>
@@ -277,20 +311,25 @@
       </div>
       <div class="experience__item">
         <div class="experience__left">
-          <h3 class="experience__company">Open Source Contributor</h3>
-          <span class="experience__role">Full Stack & AI</span>
+          <h3 class="experience__company">Hackathon Builder</h3>
+          <span class="experience__role">Competitive AI Engineering</span>
+          <p class="experience__desc">Designed and shipped CostIQ (LangGraph multi-agent enterprise cost intelligence
+            platform) and CarrierAI (MILP/AHP-TOPSIS logistics procurement tool) under hackathon constraints.</p>
         </div>
         <div class="experience__right">
-          <span class="experience__date">2022 — Present</span>
+          <span class="experience__date">2024 — Present</span>
         </div>
       </div>
       <div class="experience__item">
         <div class="experience__left">
-          <h3 class="experience__company">University Projects</h3>
-          <span class="experience__role">AI Undergrad</span>
+          <h3 class="experience__company">Sales Intern — AH Enterprises, Mumbai</h3>
+          <span class="experience__role">Operations & Sales</span>
+          <p class="experience__desc">Streamlined daily delivery scheduling for 20+ orders, reducing fulfilment delays
+            by ~30%. Accelerated invoice turnaround by ~25% by standardising documentation templates across 3
+            departments.</p>
         </div>
         <div class="experience__right">
-          <span class="experience__date">2021 — Present</span>
+          <span class="experience__date">Dec 2024 — May 2025</span>
         </div>
       </div>
     </div>
@@ -311,80 +350,85 @@
           </div>
         </div>
         <h3 class="projects__item-name">DeepFake Detection</h3>
-        <p class="projects__item-desc">A web-based deepfake detection system that analyzes images and videos to
-          determine if they contain deepfake content.</p>
-      </a>
-
-      <a href="https://github.com/1234620/AI-Powered-Resume-Builder-ATS-Optimization-Agent" target="_blank"
-        class="projects__item">
-        <div class="projects__item-header">
-          <span class="projects__item-number">_02.</span>
-          <div class="projects__item-tags">
-            <span class="projects__tag">JavaScript</span>
-            <span class="projects__tag">AI Agent</span>
-            <span class="projects__tag">NLP</span>
-          </div>
-        </div>
-        <h3 class="projects__item-name">AI Resume Builder</h3>
-        <p class="projects__item-desc">An intelligent AI Agent that helps users create ATS-optimized resumes with
-          professional formatting and enhanced readability.</p>
+        <p class="projects__item-desc">CNN-BiLSTM hybrid model for deepfake detection in images and videos. Processes
+          facial temporal sequences to classify manipulated media with high accuracy.</p>
       </a>
 
       <a href="https://github.com/1234620/Real-Time-Suspicious-Object-Recognition-" target="_blank"
         class="projects__item">
         <div class="projects__item-header">
-          <span class="projects__item-number">_03.</span>
+          <span class="projects__item-number">_02.</span>
           <div class="projects__item-tags">
             <span class="projects__tag">Python</span>
             <span class="projects__tag">YOLOv8</span>
             <span class="projects__tag">Computer Vision</span>
+            <span class="projects__tag">Security</span>
           </div>
         </div>
-        <h3 class="projects__item-name">Object Recognition</h3>
-        <p class="projects__item-desc">Real-time object detection using YOLOv8 with support for images, videos, and live
-          camera feeds.</p>
+        <h3 class="projects__item-name">Suspicious Object Detection</h3>
+        <p class="projects__item-desc">Real-time security-focused object detection system using YOLOv8. Identifies
+          suspicious items across live camera feeds, video streams, and static images for surveillance use cases.</p>
       </a>
 
       <a href="https://github.com/1234620/Travel-Based-Chatbot" target="_blank" class="projects__item">
         <div class="projects__item-header">
-          <span class="projects__item-number">_04.</span>
+          <span class="projects__item-number">_03.</span>
           <div class="projects__item-tags">
-            <span class="projects__tag">TypeScript</span>
-            <span class="projects__tag">NLP</span>
+            <span class="projects__tag">Python</span>
+            <span class="projects__tag">LangChain</span>
+            <span class="projects__tag">RAG</span>
             <span class="projects__tag">Multi-Agent</span>
           </div>
         </div>
-        <h3 class="projects__item-name">Travel Chatbot</h3>
-        <p class="projects__item-desc">NLP-based multi-agent chatbot for flight search, hotel booking, and AI-powered
-          itinerary generation.</p>
+        <h3 class="projects__item-name">RAG Travel Chatbot</h3>
+        <p class="projects__item-desc">Multi-agent RAG pipeline for travel planning — handles flight search, hotel
+          booking, and AI-generated itineraries using retrieval-augmented generation.</p>
       </a>
 
       <a href="https://github.com/1234620/train-traffic-optimizer" target="_blank" class="projects__item">
         <div class="projects__item-header">
-          <span class="projects__item-number">_05.</span>
+          <span class="projects__item-number">_04.</span>
           <div class="projects__item-tags">
             <span class="projects__tag">TypeScript</span>
             <span class="projects__tag">AI</span>
             <span class="projects__tag">Optimization</span>
+            <span class="projects__tag">Railway</span>
           </div>
         </div>
         <h3 class="projects__item-name">Train Traffic Optimizer</h3>
-        <p class="projects__item-desc">Advanced AI-Powered Railway Optimization Platform for scheduling and traffic
-          management.</p>
+        <p class="projects__item-desc">AI-powered railway scheduling and traffic management platform. Optimizes train
+          routing and slot allocation to reduce delays and improve throughput.</p>
       </a>
 
-      <a href="https://github.com/1234620/chatbot-langchain-" target="_blank" class="projects__item">
+      <a href="https://github.com/1234620/AI-Powered-Resume-Builder-ATS-Optimization-Agent" target="_blank"
+        class="projects__item">
+        <div class="projects__item-header">
+          <span class="projects__item-number">_05.</span>
+          <div class="projects__item-tags">
+            <span class="projects__tag">JavaScript</span>
+            <span class="projects__tag">AI Agent</span>
+            <span class="projects__tag">NLP</span>
+            <span class="projects__tag">ATS</span>
+          </div>
+        </div>
+        <h3 class="projects__item-name">AI Resume Builder</h3>
+        <p class="projects__item-desc">Autonomous AI agent that generates ATS-optimized resumes. Analyzes job
+          descriptions and tailors content, formatting, and keywords for recruiter systems.</p>
+      </a>
+
+      <a href="#" class="projects__item">
         <div class="projects__item-header">
           <span class="projects__item-number">_06.</span>
           <div class="projects__item-tags">
             <span class="projects__tag">Python</span>
-            <span class="projects__tag">LangChain</span>
-            <span class="projects__tag">LLM</span>
+            <span class="projects__tag">LangGraph</span>
+            <span class="projects__tag">Multi-Agent</span>
+            <span class="projects__tag">FastAPI</span>
           </div>
         </div>
-        <h3 class="projects__item-name">LangChain Chatbot</h3>
-        <p class="projects__item-desc">A chatbot powered by LangChain with conversational memory for contextual and
-          persistent interactions.</p>
+        <h3 class="projects__item-name">CostIQ</h3>
+        <p class="projects__item-desc">Enterprise cost intelligence platform powered by 4 LangGraph agents. Full
+          backend stack: FastAPI, PostgreSQL, Redis, ChromaDB. Built for hackathon competition.</p>
       </a>
 
     </div>
@@ -448,6 +492,7 @@
   <!-- ======== FOOTER ======== -->
   <footer class="footer">
     <p class="footer__text">Design & built by Ahmed Moosani</p>
+    <p class="footer__copyright">&copy; 2026 Ahmed Moosani. Built with purpose.</p>
     <a href="https://github.com/1234620" target="_blank" class="footer__github">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
         <path

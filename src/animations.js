@@ -30,6 +30,7 @@ const SCROLL_DEFAULTS = {
 export function initAnimations() {
   heroAnimations();
   aboutAnimations();
+  educationAnimations();
   stackAnimations();
   experienceAnimations();
   projectAnimations();
@@ -187,6 +188,41 @@ function aboutAnimations() {
       duration: 0.5,
       stagger: 0.12,
       ease: EASE_SMOOTH,
+    });
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   EDUCATION
+   ═══════════════════════════════════════════════════════ */
+
+function educationAnimations() {
+  const eduTitle = document.querySelector('.education__title');
+  if (eduTitle) {
+    gsap.to(eduTitle, {
+      y: 0,
+      opacity: 1,
+      duration: 0.5,
+      ease: EASE_SMOOTH,
+      scrollTrigger: {
+        trigger: eduTitle,
+        ...SCROLL_DEFAULTS,
+      },
+    });
+  }
+
+  const eduCard = document.querySelector('.education__card');
+  if (eduCard) {
+    gsap.to(eduCard, {
+      y: 0,
+      opacity: 1,
+      duration: 0.6,
+      ease: EASE_SMOOTH,
+      scrollTrigger: {
+        trigger: '.education',
+        ...SCROLL_DEFAULTS,
+      },
     });
   }
 }

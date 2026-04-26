@@ -48,6 +48,13 @@
     letter-spacing: 0.02em;
 }
 
+.footer__copyright {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+    opacity: 0.6;
+}
+
 .footer__github {
     color: var(--text-muted);
     transition: color 0.3s ease;
