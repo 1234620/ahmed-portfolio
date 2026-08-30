@@ -17,9 +17,11 @@ import './styles/cursor.css';
 import './styles/menu.css';
 import './styles/hero.css';
 import './styles/about.css';
+import './styles/education.css';
 import './styles/stack.css';
 import './styles/experience.css';
 import './styles/projects.css';
+import './styles/project-detail.css';
 import './styles/contact.css';
 import './styles/cat.css';
 
@@ -27,6 +29,7 @@ import './styles/cat.css';
 import { initCursor } from './cursor.js';
 import { initParticles } from './particles.js';
 import { initMenu, initStackFilter, initScrollProgress } from './menu.js';
+import { initProjects } from './projects.js';
 import { initAnimations } from './animations.js';
 import { initCat } from './cat.js';
 
@@ -42,6 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initMenu();
   initStackFilter();
   initScrollProgress();
+
+  // Project cards + detail panel — must render before GSAP queries .projects__item
+  initProjects();
 
   // GSAP animations — hero plays immediately, others on scroll
   initAnimations();
