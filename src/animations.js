@@ -60,7 +60,9 @@ function heroAnimations() {
     ease: EASE_SMOOTH,
   }, 0.6);
 
-  tl.to('.hero__cta', {
+  // Target the group, not the buttons — hero.css sets opacity:0 on
+  // .hero__cta-group, so animating the children alone leaves it invisible.
+  tl.to('.hero__cta-group', {
     y: 0,
     opacity: 1,
     duration: 0.5,
