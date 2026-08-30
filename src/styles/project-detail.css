@@ -1,7 +1,6 @@
 /* ===== PROJECT DETAIL PANEL (native <dialog>) ===== */
 
 .project-detail {
-    /* fill the viewport so clicks on the empty area read as a backdrop click */
     position: fixed;
     inset: 0;
     /* inset:0 already fills the viewport — 100vw would add the scrollbar width */
@@ -18,7 +17,7 @@
 }
 
 .project-detail::backdrop {
-    background: rgba(5, 5, 7, 0.82);
+    background: rgba(5, 5, 7, 0.86);
     backdrop-filter: blur(6px);
 }
 
@@ -28,12 +27,31 @@
     justify-content: center;
 }
 
+/* A <dialog> renders in the top layer, above the custom cursor's fixed
+   elements — so the custom cursor is invisible inside the panel and the page
+   looks like it has no pointer at all. Hand the pointer back to the OS here,
+   and hide the custom one while the panel is open. */
+.project-detail,
+.project-detail * {
+    cursor: auto;
+}
+
+.project-detail a,
+.project-detail button {
+    cursor: pointer;
+}
+
+body.pd-open .cursor-dot,
+body.pd-open .cursor-ring {
+    opacity: 0 !important;
+}
+
 .pd__body {
     position: relative;
-    width: min(820px, 100%);
+    width: min(880px, 100%);
     max-height: 100%;
     overflow-y: auto;
-    padding: 72px 48px 64px;
+    padding: 72px 56px 64px;
     background: var(--bg-secondary);
     border-left: 1px solid var(--border);
     border-right: 1px solid var(--border);
@@ -67,9 +85,10 @@
     transform: rotate(90deg);
 }
 
+/* ── Header ─────────────────────────────────────────── */
+
 .pd__header {
     padding-bottom: 32px;
-    margin-bottom: 8px;
     border-bottom: 1px solid var(--border);
 }
 
@@ -99,8 +118,155 @@
     color: var(--text-secondary);
 }
 
+/* ── Metric strip ───────────────────────────────────── */
+
+.pd__metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px;
+    margin: 32px 0 40px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.pd__metrics .metric {
+    padding: 22px 20px;
+    background: var(--bg-card);
+}
+
+.metric__value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--accent-hover);
+}
+
+.metric__label {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.metric__note {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.72rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+}
+
+/* ── Screenshots ────────────────────────────────────── */
+
+.pd__gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin: 8px 0 40px;
+}
+
+.pd__shot img {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg-card);
+}
+
+.pd__caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
+.pd__figure {
+    margin: 8px 0 40px;
+}
+
+/* ── Flow diagram (for projects with no screenshot) ── */
+
+.flow {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    padding: 24px;
+    overflow-x: auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.flow__stage {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 148px;
+}
+
+.flow__stage-label {
+    font-family: var(--font-display);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.flow__nodes {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.flow__node {
+    padding: 11px 13px;
+    font-size: 0.76rem;
+    line-height: 1.4;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.flow__arrow {
+    flex: 0 0 auto;
+    align-self: center;
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+    opacity: 0.55;
+    position: relative;
+}
+
+.flow__arrow::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    right: 0;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid var(--accent);
+    border-right: 1px solid var(--accent);
+    transform: rotate(45deg);
+}
+
+/* ── Body sections ──────────────────────────────────── */
+
+/* globals.css styles bare `section` with 120px/60px padding for page sections —
+   reset it here, the panel does its own spacing. */
 .pd__section {
-    margin-top: 40px;
+    max-width: none;
+    margin: 40px 0 0;
+    padding: 0;
 }
 
 .pd__label {
@@ -158,6 +324,8 @@
     gap: 8px;
 }
 
+/* ── Links ──────────────────────────────────────────── */
+
 .pd__links {
     display: flex;
     flex-wrap: wrap;
@@ -201,12 +369,34 @@
 
 @media (max-width: 768px) {
     .pd__body {
-        padding: 72px 24px 56px;
+        padding: 72px 20px 56px;
         border: none;
     }
 
     .pd__close {
         top: 16px;
         right: 16px;
+    }
+
+    .flow {
+        flex-direction: column;
+        padding: 18px;
+    }
+
+    .flow__arrow {
+        align-self: flex-start;
+        width: 1px;
+        height: 16px;
+        margin-left: 20px;
+    }
+
+    .flow__arrow::after {
+        top: auto;
+        right: auto;
+        bottom: 0;
+        left: -3px;
+        border-top: none;
+        border-right: 1px solid var(--accent);
+        border-bottom: 1px solid var(--accent);
     }
 }

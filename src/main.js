@@ -49,8 +49,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // Project cards + detail panel — must render before GSAP queries .projects__item
   initProjects();
 
-  // GSAP animations — hero plays immediately, others on scroll
-  initAnimations();
+  // GSAP animations — hero plays immediately, others on scroll.
+  // Everything on the page starts at opacity:0 waiting for these, so if the
+  // module throws, fall back to showing the content unanimated.
+  try {
+    initAnimations();
+  } catch (err) {
+    console.warn('[animations] failed, revealing content unanimated:', err);
+    document.body.classList.add('no-anim');
+    document.querySelectorAll('.hero__stat-number[data-count]').forEach((el) => {
+      el.textContent = el.dataset.count;
+    });
+    document.querySelectorAll('.projects__item').forEach((el) => el.classList.add('revealed'));
+  }
 
   // Peeking cat with cursor-tracking eyes
   initCat();

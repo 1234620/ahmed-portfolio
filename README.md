@@ -14,7 +14,7 @@ A dark-themed personal portfolio built with vanilla JS, GSAP scroll animations, 
 |-------|-------|
 | Build | [Vite](https://vitejs.dev) |
 | Markup | Semantic HTML5 |
-| Styling | Vanilla CSS (custom properties, media queries) |
+| Styling | Vanilla CSS (custom properties, media queries) — imported by `src/main.js`, bundled by Vite |
 | Animation | [GSAP](https://greensock.com/gsap/) + ScrollTrigger |
 | Fonts | Inter, Space Grotesk (Google Fonts) |
 | Deployment | GitHub Pages |
@@ -24,7 +24,7 @@ A dark-themed personal portfolio built with vanilla JS, GSAP scroll animations, 
 ## Features
 
 ### Editing Project Content
-All project copy lives in `src/projects-data.js`. Each entry has `problem` / `build` / `how` / `results` / `stack` / `links`. Add or edit an object there and both the card and the detail panel update — the HTML never needs touching.
+All project copy lives in `src/projects-data.js`. Each entry has `problem` / `build` / `how` / `results` / `stack` / `links`, plus optional `metrics` (the stat strip), `images` (a screenshot gallery), and `diagram` (a column-by-column flow, rendered when there is no screenshot). Add or edit an object there and both the card and the detail panel update — the HTML never needs touching.
 
 ### Scroll Animations
 Every section fades/slides in as it enters the viewport using GSAP ScrollTrigger. Animations are tuned to fire early (92% viewport entry) with short durations (0.3–0.6s) so the site feels responsive, not sluggish. Elements stay visible once revealed — no reverse on scroll-back.
@@ -36,7 +36,11 @@ A dual-layer cursor (dot + ring) replaces the default pointer on desktop. The ri
 A fixed canvas-based star field adds depth to the dark background without heavy dependencies.
 
 ### Project Detail Panel
-Every project card opens a full-screen panel telling the story behind it — the problem, what was built, how it works, and the measured results — with links to the repo and any live demo. Cards and panels both render from a single data file (`src/projects-data.js`), so there is one place to edit. Built on the native `<dialog>` element, which gives Escape-to-close and a focus trap for free.
+Every project card opens a full-screen panel telling the story behind it: a stat strip of the headline numbers, a real screenshot gallery where one exists, an architecture diagram where one doesn't, then the problem, what was built, how it works, the measured results, the stack, and links to the repo and any live demo.
+
+Cards and panels both render from a single data file (`src/projects-data.js`), so there is one place to edit. Built on the native `<dialog>` element, which gives Escape-to-close and a focus trap for free.
+
+Screenshots live in `public/projects/` — they come from repo assets or from captures of the deployed demos, resized to 1000–1200px and JPEG-compressed, and every one is lazy-loaded.
 
 ### Interactive Cat 🐱
 A peeking SVG cat is fixed to the bottom-right corner. Its pupils track the user's cursor in real-time. When the mouse is idle for ~2.5 seconds, the eyes drift on their own. The cat also blinks and has a subtle ear-twitch animation.
@@ -86,7 +90,9 @@ src/cat.js
 ├── vite.config.js          # Vite config (base path for GH Pages)
 ├── package.json
 ├── public/
-│   └── ahmed.png           # Profile photo
+│   ├── ahmed.png           # Profile photo
+│   ├── resume.pdf
+│   └── projects/           # Project screenshots (lazy-loaded)
 ├── src/
 │   ├── main.js             # Entry point — imports everything
 │   ├── cursor.js           # Custom cursor logic
@@ -94,7 +100,7 @@ src/cat.js
 │   ├── menu.js             # Hamburger drawer, stack tabs, scroll bar
 │   ├── animations.js       # GSAP + ScrollTrigger (all sections)
 │   ├── projects.js         # Renders project cards + the <dialog> detail panel
-│   ├── projects-data.js    # Single source of truth for every project
+│   ├── projects-data.js    # Single source of truth: copy, metrics, images, diagrams
 │   ├── cat.js              # Cat eye-tracking module
 │   └── styles/
 │       ├── globals.css     # Tokens, resets, base styles

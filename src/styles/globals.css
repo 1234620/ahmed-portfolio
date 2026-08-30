@@ -95,6 +95,26 @@ strong {
   transition: width 0.05s linear;
 }
 
+/* Safety net: every section starts at opacity:0 and is revealed by GSAP.
+   If the animation module fails, main.js sets this class so the page still
+   renders rather than showing a blank screen. */
+.no-anim .hero__title-line, .no-anim .hero__bio, .no-anim .hero__cta-group,
+.no-anim .hero__stat, .no-anim .about__quote p, .no-anim .about__photo-wrapper,
+.no-anim .about__heading h2, .no-anim .about__description p,
+.no-anim .education__title, .no-anim .education__card, .no-anim .stack__title,
+.no-anim .stack__item:not(.stack__item--hidden), .no-anim .experience__title,
+.no-anim .experience__item, .no-anim .projects__title, .no-anim .projects__item,
+.no-anim .contact__subtitle, .no-anim .contact__email {
+  /* !important because GSAP writes opacity inline when it builds a tween, so a
+     failure part-way through leaves inline opacity:0 on some elements. */
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.no-anim .about__divider-line {
+  transform: scaleX(1) !important;
+}
+
 /* Selection */
 ::selection {
   background: var(--accent);
