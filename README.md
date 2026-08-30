@@ -23,6 +23,9 @@ A dark-themed personal portfolio built with vanilla JS, GSAP scroll animations, 
 
 ## Features
 
+### Editing Project Content
+All project copy lives in `src/projects-data.js`. Each entry has `problem` / `build` / `how` / `results` / `stack` / `links`. Add or edit an object there and both the card and the detail panel update — the HTML never needs touching.
+
 ### Scroll Animations
 Every section fades/slides in as it enters the viewport using GSAP ScrollTrigger. Animations are tuned to fire early (92% viewport entry) with short durations (0.3–0.6s) so the site feels responsive, not sluggish. Elements stay visible once revealed — no reverse on scroll-back.
 
@@ -31,6 +34,9 @@ A dual-layer cursor (dot + ring) replaces the default pointer on desktop. The ri
 
 ### Particle Background
 A fixed canvas-based star field adds depth to the dark background without heavy dependencies.
+
+### Project Detail Panel
+Every project card opens a full-screen panel telling the story behind it — the problem, what was built, how it works, and the measured results — with links to the repo and any live demo. Cards and panels both render from a single data file (`src/projects-data.js`), so there is one place to edit. Built on the native `<dialog>` element, which gives Escape-to-close and a focus trap for free.
 
 ### Interactive Cat 🐱
 A peeking SVG cat is fixed to the bottom-right corner. Its pupils track the user's cursor in real-time. When the mouse is idle for ~2.5 seconds, the eyes drift on their own. The cat also blinks and has a subtle ear-twitch animation.
@@ -52,7 +58,7 @@ I explored three styles before settling on the "peeking cat" — a minimal silho
 ### How the eye tracking works
 
 ```
-src/cat.js — ~95 lines
+src/cat.js
 ```
 
 1. Cache the two `<ellipse>` pupil elements and the parent eye elements
@@ -87,6 +93,8 @@ src/cat.js — ~95 lines
 │   ├── particles.js        # Canvas star field
 │   ├── menu.js             # Hamburger drawer, stack tabs, scroll bar
 │   ├── animations.js       # GSAP + ScrollTrigger (all sections)
+│   ├── projects.js         # Renders project cards + the <dialog> detail panel
+│   ├── projects-data.js    # Single source of truth for every project
 │   ├── cat.js              # Cat eye-tracking module
 │   └── styles/
 │       ├── globals.css     # Tokens, resets, base styles
@@ -94,9 +102,11 @@ src/cat.js — ~95 lines
 │       ├── menu.css
 │       ├── hero.css
 │       ├── about.css
+│       ├── education.css
 │       ├── stack.css
 │       ├── experience.css
 │       ├── projects.css
+│       ├── project-detail.css
 │       ├── contact.css
 │       └── cat.css         # Cat widget styles + animations
 └── docs/                   # README screenshots
@@ -117,20 +127,15 @@ npm run dev
 npm run build
 ```
 
-The dev server runs on `localhost:3000` (or next available port). Hot module replacement is enabled — edits to CSS/JS reflect instantly.
+The dev server runs on `localhost:3000`. Because Vite's `base` is set for GitHub Pages, the site is served at **http://localhost:3000/ahmed-portfolio/**. Hot module replacement is enabled — edits to CSS/JS reflect instantly.
 
 ---
 
 ## Deployment
 
-The site deploys to GitHub Pages via the `gh-pages` branch. The Vite config sets `base: '/portfolio/'` to match the repo name.
+The site deploys to GitHub Pages automatically. `.github/workflows/deploy.yml` builds on every push to `main` and publishes `dist/` with the official `actions/deploy-pages` action — there is no `gh-pages` branch involved.
 
-```bash
-npm run build
-npx gh-pages -d dist
-```
-
-There's also a GitHub Actions workflow at `.github/workflows/` that handles this automatically on push to `main`.
+The Vite config sets `base: '/ahmed-portfolio/'` to match the repo name, so all absolute asset paths (`/ahmed.png`, `/resume.pdf`) are rewritten at build time. Write them **without** the base prefix in source, or they will 404 in dev.
 
 ---
 

@@ -1,0 +1,212 @@
+/* ===== PROJECT DETAIL PANEL (native <dialog>) ===== */
+
+.project-detail {
+    /* fill the viewport so clicks on the empty area read as a backdrop click */
+    position: fixed;
+    inset: 0;
+    /* inset:0 already fills the viewport — 100vw would add the scrollbar width */
+    width: auto;
+    max-width: none;
+    height: auto;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--text-primary);
+    overflow: hidden;
+}
+
+.project-detail::backdrop {
+    background: rgba(5, 5, 7, 0.82);
+    backdrop-filter: blur(6px);
+}
+
+.project-detail[open] {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.pd__body {
+    position: relative;
+    width: min(820px, 100%);
+    max-height: 100%;
+    overflow-y: auto;
+    padding: 72px 48px 64px;
+    background: var(--bg-secondary);
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    animation: pd-rise 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes pd-rise {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.pd__close {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--text-secondary);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.pd__close:hover {
+    color: var(--text-primary);
+    border-color: var(--accent);
+    transform: rotate(90deg);
+}
+
+.pd__header {
+    padding-bottom: 32px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+.pd__period {
+    display: block;
+    margin-bottom: 12px;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.pd__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 4vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 16px;
+}
+
+.pd__blurb {
+    max-width: 60ch;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+}
+
+.pd__section {
+    margin-top: 40px;
+}
+
+.pd__label {
+    margin-bottom: 14px;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.pd__text,
+.pd__list li {
+    max-width: 68ch;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.pd__list {
+    list-style: none;
+}
+
+.pd__list li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 12px;
+}
+
+.pd__list li::before {
+    content: '';
+    position: absolute;
+    top: 0.65em;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+}
+
+.pd__list--results li {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.pd__list--results li::before {
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.pd__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.pd__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+}
+
+.pd__link {
+    padding: 13px 30px;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bg-primary);
+    background: var(--text-primary);
+    border: 1px solid var(--text-primary);
+    border-radius: 100px;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.pd__link:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--text-primary);
+}
+
+.pd__link--ghost {
+    color: var(--text-secondary);
+    background: transparent;
+    border-color: var(--border);
+}
+
+.pd__link--ghost:hover {
+    color: var(--text-primary);
+    background: transparent;
+    border-color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .pd__body {
+        padding: 72px 24px 56px;
+        border: none;
+    }
+
+    .pd__close {
+        top: 16px;
+        right: 16px;
+    }
+}

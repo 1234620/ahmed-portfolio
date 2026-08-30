@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="/src/styles/stack.css" />
   <link rel="stylesheet" href="/src/styles/experience.css" />
   <link rel="stylesheet" href="/src/styles/projects.css" />
+  <link rel="stylesheet" href="/src/styles/project-detail.css" />
   <link rel="stylesheet" href="/src/styles/contact.css" />
 </head>
 
@@ -61,6 +62,7 @@
           <a href="#stack" class="menu-overlay__link menu-overlay__link--nav" data-color="#22c55e">Stack</a>
           <a href="#experience" class="menu-overlay__link menu-overlay__link--nav" data-color="#ec4899">Experience</a>
           <a href="#projects" class="menu-overlay__link menu-overlay__link--nav" data-color="#8b5cf6">Projects</a>
+          <a href="#contact" class="menu-overlay__link menu-overlay__link--nav" data-color="#f43f5e">Contact</a>
         </div>
         <div class="menu-overlay__footer">
           <span class="menu-overlay__label">GET IN TOUCH</span>
@@ -89,20 +91,21 @@
         </p>
         <div class="hero__cta-group">
           <a href="#projects" class="hero__cta">VIEW MY WORK</a>
-          <a href="/ahmed-portfolio/resume.pdf" download class="hero__cta hero__cta--secondary">DOWNLOAD RESUME</a>
+          <!-- relative on purpose: Vite rewrites <link>/<img> for `base`, but not <a href>. -->
+          <a href="resume.pdf" download class="hero__cta hero__cta--secondary">DOWNLOAD RESUME</a>
         </div>
       </div>
       <div class="hero__stats">
         <div class="hero__stat">
-          <span class="hero__stat-number" data-count="6">0</span><span class="hero__stat-plus">+</span>
-          <span class="hero__stat-label">Projects Built</span>
+          <span class="hero__stat-number" data-count="18">0</span><span class="hero__stat-plus">+</span>
+          <span class="hero__stat-label">Public Repos</span>
         </div>
         <div class="hero__stat">
           <span class="hero__stat-number" data-count="3">0</span><span class="hero__stat-plus">+</span>
           <span class="hero__stat-label">Years Coding</span>
         </div>
         <div class="hero__stat">
-          <span class="hero__stat-number" data-count="100">0</span><span class="hero__stat-plus">+</span>
+          <span class="hero__stat-number" data-count="200">0</span><span class="hero__stat-plus">+</span>
           <span class="hero__stat-label">Contributions</span>
         </div>
       </div>
@@ -131,9 +134,9 @@
           <h2>Hi, I'm Ahmed.</h2>
         </div>
         <div class="about__description">
-          <p>I'm a pre-final year MBA (AI) student at NMIMS Mumbai specializing in multi-agent LLM systems, computer
-            vision, and AI backend engineering. I build things that work — from YOLOv8 security pipelines to LangGraph
-            agent orchestration to RAG-powered chatbots.</p>
+          <p>I'm a pre-final year MBA Tech (AI) student at MPSTME, NMIMS Mumbai, working on multi-agent LLM
+            systems, computer vision, and AI backend engineering. I build things that work — from a YOLOv11
+            surveillance detector to LangGraph agent orchestration to RAG chatbots wired into live travel APIs.</p>
           <p>I care about systems that ship, not just models that train.</p>
         </div>
       </div>
@@ -150,7 +153,7 @@
           <span class="education__degree">MBA Tech (Artificial Intelligence)</span>
         </div>
         <div class="education__card-right">
-          <span class="education__duration">2024 — 2028</span>
+          <span class="education__duration">2023 — 2028</span>
           <span class="education__gpa">GPA: 3.75 / 4.0</span>
         </div>
       </div>
@@ -159,9 +162,9 @@
         <div class="education__coursework-tags">
           <span class="education__tag">Machine Learning</span>
           <span class="education__tag">Deep Learning</span>
-          <span class="education__tag">DevOps</span>
-          <span class="education__tag">Blockchain</span>
-          <span class="education__tag">Organizational Behavior</span>
+          <span class="education__tag">Computer Vision</span>
+          <span class="education__tag">NLP</span>
+          <span class="education__tag">Computer Networks</span>
         </div>
       </div>
     </div>
@@ -195,11 +198,6 @@
         <span class="stack__name">PyTorch</span>
       </div>
       <div class="stack__item" data-category="ai">
-        <img class="stack__icon" src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg"
-          alt="HuggingFace" />
-        <span class="stack__name">HuggingFace</span>
-      </div>
-      <div class="stack__item" data-category="ai">
         <img class="stack__icon" src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg"
           alt="Scikit-learn" />
         <span class="stack__name">Scikit-learn</span>
@@ -208,6 +206,11 @@
         <img class="stack__icon" src="https://api.iconify.design/simple-icons/langchain.svg?color=white"
           alt="LangChain" />
         <span class="stack__name">LangChain</span>
+      </div>
+      <div class="stack__item" data-category="ai">
+        <img class="stack__icon" src="https://api.iconify.design/simple-icons/langchain.svg?color=white"
+          alt="LangGraph" />
+        <span class="stack__name">LangGraph</span>
       </div>
       <div class="stack__item" data-category="ai">
         <img class="stack__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg"
@@ -247,6 +250,12 @@
           alt="Next.js" />
         <span class="stack__name">Next.js</span>
       </div>
+      <div class="stack__item stack__item--hidden" data-category="frontend">
+        <img class="stack__icon"
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+          alt="Tailwind CSS" />
+        <span class="stack__name">Tailwind</span>
+      </div>
       <!-- Backend -->
       <div class="stack__item stack__item--hidden" data-category="backend">
         <img class="stack__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
@@ -259,15 +268,19 @@
         <span class="stack__name">FastAPI</span>
       </div>
       <div class="stack__item stack__item--hidden" data-category="backend">
+        <img class="stack__icon" src="https://api.iconify.design/simple-icons/flask.svg?color=white" alt="Flask" />
+        <span class="stack__name">Flask</span>
+      </div>
+      <div class="stack__item stack__item--hidden" data-category="backend">
         <img class="stack__icon"
           src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
           alt="PostgreSQL" />
         <span class="stack__name">PostgreSQL</span>
       </div>
       <div class="stack__item stack__item--hidden" data-category="backend">
-        <img class="stack__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
-          alt="MongoDB" />
-        <span class="stack__name">MongoDB</span>
+        <img class="stack__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg"
+          alt="Redis" />
+        <span class="stack__name">Redis</span>
       </div>
       <!-- Tools -->
       <div class="stack__item stack__item--hidden" data-category="tools">
@@ -300,36 +313,60 @@
     <div class="experience__list">
       <div class="experience__item">
         <div class="experience__left">
-          <h3 class="experience__company">AI/ML Developer (Independent Projects)</h3>
-          <span class="experience__role">Project-Driven Engineering</span>
-          <p class="experience__desc">Built production-grade AI systems including deepfake detection (CNN-BiLSTM),
-            RAG-based travel chatbot, suspicious object detection (YOLOv8), and AI railway traffic optimization.</p>
+          <h3 class="experience__company">Technical Intern — Parasnath Distribution Group, Mumbai</h3>
+          <span class="experience__role">Data &amp; Analytics Engineering</span>
+          <p class="experience__desc">Built a Sales Performance &amp; Forecasting Dashboard (FastAPI + Next.js) that
+            replaced the company's manual Excel reporting cycle — adding Prophet revenue forecasting, regional
+            breakdowns, and daily anomaly detection. Delivered through the MPSTME NMIMS Technical Internship
+            Program 2026.</p>
         </div>
         <div class="experience__right">
-          <span class="experience__date">2023 — Present</span>
-        </div>
-      </div>
-      <div class="experience__item">
-        <div class="experience__left">
-          <h3 class="experience__company">Hackathon Builder</h3>
-          <span class="experience__role">Competitive AI Engineering</span>
-          <p class="experience__desc">Designed and shipped CostIQ (LangGraph multi-agent enterprise cost intelligence
-            platform) and CarrierAI (MILP/AHP-TOPSIS logistics procurement tool) under hackathon constraints.</p>
-        </div>
-        <div class="experience__right">
-          <span class="experience__date">2024 — Present</span>
+          <span class="experience__date">May — Jul 2026</span>
         </div>
       </div>
       <div class="experience__item">
         <div class="experience__left">
           <h3 class="experience__company">Sales Intern — AH Enterprises, Mumbai</h3>
-          <span class="experience__role">Operations & Sales</span>
+          <span class="experience__role">Operations &amp; Sales</span>
           <p class="experience__desc">Streamlined daily delivery scheduling for 20+ orders, reducing fulfilment delays
-            by ~30%. Accelerated invoice turnaround by ~25% by standardising documentation templates across 3
-            departments.</p>
+            by ~30% through proactive coordination between the sales and delivery teams. Accelerated invoice turnaround
+            by ~25% by standardising documentation templates across 3 departments.</p>
         </div>
         <div class="experience__right">
           <span class="experience__date">Dec 2024 — May 2025</span>
+        </div>
+      </div>
+      <div class="experience__item">
+        <div class="experience__left">
+          <h3 class="experience__company">Executive — IEEE MPSTME</h3>
+          <span class="experience__role">Logistics Department</span>
+          <p class="experience__desc">Coordinated event logistics, team operations, and cross-functional collaboration
+            for the chapter's technical initiatives.</p>
+        </div>
+        <div class="experience__right">
+          <span class="experience__date">2024 — 2025</span>
+        </div>
+      </div>
+      <div class="experience__item">
+        <div class="experience__left">
+          <h3 class="experience__company">RIIDL Hack (Incuverse) — Mumbai</h3>
+          <span class="experience__role">Top 10 Finalist</span>
+          <p class="experience__desc">Placed in the top 10 of a 24-hour hackathon, qualifying among the leading teams
+            on solution design.</p>
+        </div>
+        <div class="experience__right">
+          <span class="experience__date">2024</span>
+        </div>
+      </div>
+      <div class="experience__item">
+        <div class="experience__left">
+          <h3 class="experience__company">Smart India Hackathon (SIH) — Mumbai</h3>
+          <span class="experience__role">National Innovation Challenge</span>
+          <p class="experience__desc">Cleared the college-level selection round and qualified for the national
+            innovation challenge focused on real-world problem solving.</p>
+        </div>
+        <div class="experience__right">
+          <span class="experience__date">2024</span>
         </div>
       </div>
     </div>
@@ -338,101 +375,13 @@
   <!-- ======== PROJECTS ======== -->
   <section class="projects" id="projects">
     <h2 class="projects__title">SELECTED PROJECTS</h2>
-    <div class="projects__list" id="projects-list">
-
-      <a href="https://github.com/1234620/DeepFake-Detection" target="_blank" class="projects__item">
-        <div class="projects__item-header">
-          <span class="projects__item-number">_01.</span>
-          <div class="projects__item-tags">
-            <span class="projects__tag">Python</span>
-            <span class="projects__tag">Deep Learning</span>
-            <span class="projects__tag">Computer Vision</span>
-          </div>
-        </div>
-        <h3 class="projects__item-name">DeepFake Detection</h3>
-        <p class="projects__item-desc">CNN-BiLSTM hybrid model for deepfake detection in images and videos. Processes
-          facial temporal sequences to classify manipulated media with high accuracy.</p>
-      </a>
-
-      <a href="https://github.com/1234620/Real-Time-Suspicious-Object-Recognition-" target="_blank"
-        class="projects__item">
-        <div class="projects__item-header">
-          <span class="projects__item-number">_02.</span>
-          <div class="projects__item-tags">
-            <span class="projects__tag">Python</span>
-            <span class="projects__tag">YOLOv8</span>
-            <span class="projects__tag">Computer Vision</span>
-            <span class="projects__tag">Security</span>
-          </div>
-        </div>
-        <h3 class="projects__item-name">Suspicious Object Detection</h3>
-        <p class="projects__item-desc">Real-time security-focused object detection system using YOLOv8. Identifies
-          suspicious items across live camera feeds, video streams, and static images for surveillance use cases.</p>
-      </a>
-
-      <a href="https://github.com/1234620/Travel-Based-Chatbot" target="_blank" class="projects__item">
-        <div class="projects__item-header">
-          <span class="projects__item-number">_03.</span>
-          <div class="projects__item-tags">
-            <span class="projects__tag">Python</span>
-            <span class="projects__tag">LangChain</span>
-            <span class="projects__tag">RAG</span>
-            <span class="projects__tag">Multi-Agent</span>
-          </div>
-        </div>
-        <h3 class="projects__item-name">RAG Travel Chatbot</h3>
-        <p class="projects__item-desc">Multi-agent RAG pipeline for travel planning — handles flight search, hotel
-          booking, and AI-generated itineraries using retrieval-augmented generation.</p>
-      </a>
-
-      <a href="https://github.com/1234620/train-traffic-optimizer" target="_blank" class="projects__item">
-        <div class="projects__item-header">
-          <span class="projects__item-number">_04.</span>
-          <div class="projects__item-tags">
-            <span class="projects__tag">TypeScript</span>
-            <span class="projects__tag">AI</span>
-            <span class="projects__tag">Optimization</span>
-            <span class="projects__tag">Railway</span>
-          </div>
-        </div>
-        <h3 class="projects__item-name">Train Traffic Optimizer</h3>
-        <p class="projects__item-desc">AI-powered railway scheduling and traffic management platform. Optimizes train
-          routing and slot allocation to reduce delays and improve throughput.</p>
-      </a>
-
-      <a href="https://github.com/1234620/AI-Powered-Resume-Builder-ATS-Optimization-Agent" target="_blank"
-        class="projects__item">
-        <div class="projects__item-header">
-          <span class="projects__item-number">_05.</span>
-          <div class="projects__item-tags">
-            <span class="projects__tag">JavaScript</span>
-            <span class="projects__tag">AI Agent</span>
-            <span class="projects__tag">NLP</span>
-            <span class="projects__tag">ATS</span>
-          </div>
-        </div>
-        <h3 class="projects__item-name">AI Resume Builder</h3>
-        <p class="projects__item-desc">Autonomous AI agent that generates ATS-optimized resumes. Analyzes job
-          descriptions and tailors content, formatting, and keywords for recruiter systems.</p>
-      </a>
-
-      <a href="#" class="projects__item">
-        <div class="projects__item-header">
-          <span class="projects__item-number">_06.</span>
-          <div class="projects__item-tags">
-            <span class="projects__tag">Python</span>
-            <span class="projects__tag">LangGraph</span>
-            <span class="projects__tag">Multi-Agent</span>
-            <span class="projects__tag">FastAPI</span>
-          </div>
-        </div>
-        <h3 class="projects__item-name">CostIQ</h3>
-        <p class="projects__item-desc">Enterprise cost intelligence platform powered by 4 LangGraph agents. Full
-          backend stack: FastAPI, PostgreSQL, Redis, ChromaDB. Built for hackathon competition.</p>
-      </a>
-
-    </div>
+    <p class="projects__hint">Click any project to read what actually happened on it.</p>
+    <!-- Cards are rendered from src/projects-data.js -->
+    <div class="projects__list" id="projects-list"></div>
   </section>
+
+  <!-- Project detail panel — native <dialog>: Escape + focus trap for free -->
+  <dialog class="project-detail" id="project-detail" aria-label="Project details"></dialog>
 
   <!-- ======== CONTACT ======== -->
   <section class="contact" id="contact">
